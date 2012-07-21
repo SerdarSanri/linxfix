@@ -1,6 +1,6 @@
 <?php
 
 return array(
-		'ben'	=> '/',
-		'test'	=> 'go',
+		'broken'			=> '/',
+		'alsobroken'		=> 'go',
 );

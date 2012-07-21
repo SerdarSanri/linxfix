@@ -21,14 +21,13 @@
 
 // Autoload classes
 Autoloader::namespaces(array(
-'LinxFix' => Bundle::path('linxfix'),
+	'LinxFix' => Bundle::path('linxfix'),
 ));
 
 // Set the global alias
 Autoloader::alias('LinxFix\\LinxFix', 'LinxFix');
 
-
+// Overriding the regular app 404 with LinxFix.
 Event::override('404', function(){
-    //return Response::error('404');
     return LinxFix::correct();
 });

@@ -53,22 +53,25 @@ class LinxFix
 
 		 public static function correct()
 		 {
-		 	foreach (Config::get('LinxFix::links') as $key => $value) {
-		 		
-		 		if( $key == URI::current() )
-		 		{
-		 			static::$goto = $value;
-		 		}
-		 	}
+			 	//Cycle through the config
+			 	foreach (Config::get('LinxFix::links') as $key => $value) {
+			 		
+				 		// Check if the current URL is in the list and set return its redirect value
+				 		if( $key == URI::current() )
+				 		{
+				 				static::$goto = $value;
+				 		}
+			 	}
 
-		 	if( isset(static::$goto) )
-		 	{
-		 		return Redirect::to(static::$goto);
-		 	}
-		 	else
-		 	{
-		 		return Response::error('404');
-		 	}
+			 	// if the goto value has been set, then redirect, if not run usual 404.
+			 	if( isset(static::$goto) )
+			 	{
+			 			return Redirect::to(static::$goto);
+			 	}
+			 	else
+			 	{
+			 			return Response::error('404');
+			 	}
 		 } 
 
 
