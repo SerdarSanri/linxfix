@@ -2,13 +2,17 @@
 
 LinxFix is a bundle that allows laravel users to specify link redirects. When you are creating a new website for a client, and they have various links that will no longer be used from their previous site, you can simply use LinxFix.
 
-LinxFix will use an array of links, to check against the current URL. If a it matches and of the 'from' values, it will redirect to the 'to' value with the specificed 'status', thus minimising the negative SEO effects of broken links.
+LinxFix will use an array of links to check against the current URL. If the current URL matches any of the 'from' values, it will redirect to the 'to' value with the specificed 'status', thus minimising the negative SEO effects of broken links.
 
-###Quickstart
+Note: LinxFix only overrides 404's, not regular links.
+
+###Download the Bundle
 
 * Clone LinxFix into *APPPATH/bundles/*
 
-  * ```git clone git://github.com/benjam-es/linxfix.git linxfix```
+  * ```git clone git://github.com/benjam-es/linxfix.git linxfix```*
+
+###Autoload the Bundle
 
 * Edit *APPPATH/application/bundles.php*
 
