@@ -38,14 +38,6 @@ class LinxFix
 {
 
 		/**
-		 * The link to redirect to
-		 *
-		 * @var string
-		 */
-
-		protected static $goto = null;
-
-		/**
 		 * Create new LinxFix instance
 		 *
 		 * @return 404 or redirect
@@ -54,24 +46,21 @@ class LinxFix
 		 public static function correct()
 		 {
 			 	//Cycle through the config
-			 	foreach (Config::get('LinxFix::links') as $key => $value) {
+
+			 	foreach (Config::get('LinxFix::links') as $link) {
 			 		
 				 		// Check if the current URL is in the list and set return its redirect value
-				 		if( $key == URI::current() )
+
+				 		if( $link['from'] == URI::current() )
 				 		{
-				 				static::$goto = $value;
+				 				return Redirect::to( $link['to'] , $link['status'] );
 				 		}
 			 	}
 
-			 	// if the goto value has been set, then redirect, if not run usual 404.
-			 	if( isset(static::$goto) )
-			 	{
-			 			return Redirect::to(static::$goto);
-			 	}
-			 	else
-			 	{
-			 			return Response::error('404');
-			 	}
+			 	// If not redirected, run usual 404.
+
+			 	return Response::error('404');
+			 	
 		 } 
 
 

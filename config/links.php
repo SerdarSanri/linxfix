@@ -1,6 +1,14 @@
 <?php
 
 return array(
-		'broken'			=> '/',
-		'alsobroken'		=> 'go',
+		0 => array(
+					'from' => '',
+					'to' => '',
+					'status' => '',
+			),
+		1 => array(
+					'from' => '',
+					'to' => '',
+					'status' => '',
+			),
 );
